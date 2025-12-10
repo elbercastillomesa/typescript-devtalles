@@ -23,6 +23,12 @@ to create various files in the same project using similar names
         HeroPower[HeroPower["fuerzaFlash"] = 5] = "fuerzaFlash";
         HeroPower[HeroPower["fuerzaSuperman"] = 100] = "fuerzaSuperman";
     })(HeroPower || (HeroPower = {}));
+    // I missunderstood this part and deleted the list instead of changing the 
+    // values for the enum list
+    var fuerzaFlash = HeroPower.fuerzaFlash;
+    var fuerzaSuperman = HeroPower.fuerzaSuperman;
+    var fuerzaBatman = HeroPower.fuerzaBatman;
+    var fuerzaAcuaman = HeroPower.fuerzaAcuaman;
     // Function Returns
     function activar_batiseñal() {
         return 'activada';
@@ -32,7 +38,10 @@ to create various files in the same project using similar names
     }
     // Type Asercions
     var poder = '100';
-    var largoDelPoder = Number(poder.length);
+    // Proper casting to use string methods
+    var largoDelPoder = poder.length;
+    // I didn't understood this so I casted using Number incorrectly
+    //const largoDelPoder:number = Number(poder.length);
     console.log(largoDelPoder);
 })();
 //# sourceMappingURL=app.js.map

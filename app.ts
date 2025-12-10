@@ -24,11 +24,18 @@ to create various files in the same project using similar names
     //Enums
 
     enum HeroPower {
-        fuerzaAcuaman = 0,
-        fuerzaBatman = 1,
-        fuerzaFlash = 5,
-        fuerzaSuperman = 100,
+      fuerzaAcuaman = 0,
+      fuerzaBatman = 1,
+      fuerzaFlash = 5,
+      fuerzaSuperman = 100,
     }
+
+    // I missunderstood this part and deleted the list instead of changing the 
+    // values for the enum list
+    const fuerzaFlash: HeroPower = HeroPower.fuerzaFlash;
+    const fuerzaSuperman: HeroPower = HeroPower.fuerzaSuperman;
+    const fuerzaBatman: HeroPower = HeroPower.fuerzaBatman;
+    const fuerzaAcuaman: HeroPower = HeroPower.fuerzaAcuaman;
 
     // Function Returns
     function activar_batiseñal(): string {
@@ -41,9 +48,13 @@ to create various files in the same project using similar names
   
     // Type Asercions
     const poder: any = '100';
-    const largoDelPoder:number = Number(poder.length);
+    
+    // Proper casting to use string methods
+    const largoDelPoder:number = (poder as string).length;
+
+    // I didn't understood this so I casted using Number incorrectly
+    //const largoDelPoder:number = Number(poder.length);
     console.log( largoDelPoder );
   
-  })()
-  
+  })() 
   
