@@ -3,45 +3,43 @@
 to create various files in the same project using similar names
 */
 (function () {
-    /**
-     * The task is to type correctly the following code
-     */
-    // Types
-    var batman = 'Bruce';
-    var superman = 'Clark';
-    var existe = false;
-    // Tuple
-    var parejaHeroes = [batman, superman];
-    var villano = ['Lex Lutor', 5, true];
-    // Array
-    var aliados = ['Mujer Maravilla', 'Acuaman', 'San', 'Flash'];
-    //Enums
-    var HeroPower;
-    (function (HeroPower) {
-        HeroPower[HeroPower["fuerzaAcuaman"] = 0] = "fuerzaAcuaman";
-        HeroPower[HeroPower["fuerzaBatman"] = 1] = "fuerzaBatman";
-        HeroPower[HeroPower["fuerzaFlash"] = 5] = "fuerzaFlash";
-        HeroPower[HeroPower["fuerzaSuperman"] = 100] = "fuerzaSuperman";
-    })(HeroPower || (HeroPower = {}));
-    // I missunderstood this part and deleted the list instead of changing the 
-    // values for the enum list
-    var fuerzaFlash = HeroPower.fuerzaFlash;
-    var fuerzaSuperman = HeroPower.fuerzaSuperman;
-    var fuerzaBatman = HeroPower.fuerzaBatman;
-    var fuerzaAcuaman = HeroPower.fuerzaAcuaman;
-    // Function Returns
-    function activar_batiseñal() {
-        return 'activada';
+    // Basic Functions
+    function addNumbers(a, b) {
+        return a + b;
     }
-    function pedir_ayuda() {
-        console.log('Auxilio!!!');
-    }
-    // Type Asercions
-    var poder = '100';
-    // Proper casting to use string methods
-    var largoDelPoder = poder.length;
-    // I didn't understood this so I casted using Number incorrectly
-    //const largoDelPoder:number = Number(poder.length);
-    console.log(largoDelPoder);
+    var count = function (heroes) {
+        return heroes.length;
+    };
+    //! Missed to type the "superHeroes" array
+    // const superHeroes = ["Flash", "Arrow", "Superman", "Linterna Verde"];
+    var superHeroes = ["Flash", "Arrow", "Superman", "Linterna Verde"];
+    count(superHeroes);
+    // Default Params
+    //! Missed the return, as the function only does a console, the type is only void
+    // const callBatman = ( call : boolean = false) : (string | void) => {
+    var callBatman = function (call) {
+        if (call === void 0) { call = false; }
+        if (call) {
+            console.log("Batiseñal activada");
+        }
+    };
+    callBatman();
+    // Rest?
+    //! Missed to use the "..." rest to receive the people arguments
+    //! const joinHeroes = ( people : string[] ) : string => {
+    var joinHeroes = function () {
+        var people = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            people[_i] = arguments[_i];
+        }
+        return people.join(", ");
+    };
+    // Function Type
+    var doesNothing = function (isNumber, isText, isBoolean, isArray) { };
+    // Create the type of function that accepts the function "doesNothing"
+    //! Missed to type appropiately the arguments and the return
+    //! let alsoDoesNothing : Function;
+    var alsoDoesNothing;
+    alsoDoesNothing = doesNothing;
 })();
 //# sourceMappingURL=app.js.map

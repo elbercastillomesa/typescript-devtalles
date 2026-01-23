@@ -3,58 +3,50 @@ to create various files in the same project using similar names
 */
 
 (() => {
+  // Basic Functions
+  function addNumbers( a : number, b : number ) : number {
+    return a + b;
+  }
 
-    /**
-     * The task is to type correctly the following code
-     */
+  const count = ( heroes : string[] ) : number => {
+    return heroes.length;
+  }
 
-    // Types
-    const batman: string = 'Bruce';
-    const superman: string = 'Clark';
-  
-    const existe: boolean = false;
-  
-    // Tuple
-    const parejaHeroes: [string, string] = [batman,superman];
-    const villano: [string, number, boolean]  = ['Lex Lutor',5,true];
-  
-    // Array
-    const aliados:(string)[] = ['Mujer Maravilla','Acuaman','San', 'Flash'];
-  
-    //Enums
+  //! Missed to type the "superHeroes" array
+  // const superHeroes = ["Flash", "Arrow", "Superman", "Linterna Verde"];
+  const superHeroes : string[] = ["Flash", "Arrow", "Superman", "Linterna Verde"];
+  count(superHeroes);
 
-    enum HeroPower {
-      fuerzaAcuaman = 0,
-      fuerzaBatman = 1,
-      fuerzaFlash = 5,
-      fuerzaSuperman = 100,
+  // Default Params
+  //! Missed the return, as the function only does a console, the type is only void
+  // const callBatman = ( call : boolean = false) : (string | void) => {
+  const callBatman = ( call : boolean = false) : void => {
+    if( call ){
+      console.log("Batiseñal activada");
     }
+  }
 
-    // I missunderstood this part and deleted the list instead of changing the 
-    // values for the enum list
-    const fuerzaFlash: HeroPower = HeroPower.fuerzaFlash;
-    const fuerzaSuperman: HeroPower = HeroPower.fuerzaSuperman;
-    const fuerzaBatman: HeroPower = HeroPower.fuerzaBatman;
-    const fuerzaAcuaman: HeroPower = HeroPower.fuerzaAcuaman;
+  callBatman();
 
-    // Function Returns
-    function activar_batiseñal(): string {
-      return 'activada';
-    }
-  
-    function pedir_ayuda(): void {
-      console.log('Auxilio!!!');
-    }
-  
-    // Type Asercions
-    const poder: any = '100';
-    
-    // Proper casting to use string methods
-    const largoDelPoder:number = (poder as string).length;
+  // Rest?
+  //! Missed to use the "..." rest to receive the people arguments
+  //! const joinHeroes = ( people : string[] ) : string => {
+  const joinHeroes = ( ...people : string[] ) : string => {
+    return people.join(", ");
+  }
 
-    // I didn't understood this so I casted using Number incorrectly
-    //const largoDelPoder:number = Number(poder.length);
-    console.log( largoDelPoder );
+  // Function Type
+  const doesNothing = ( 
+    isNumber : number, 
+    isText : string, 
+    isBoolean : boolean, 
+    isArray : any[] ) : void => {}
+
+  // Create the type of function that accepts the function "doesNothing"
+  //! Missed to type appropiately the arguments and the return
+  //! let alsoDoesNothing : Function;
+  let alsoDoesNothing : (a: number, b: string, c:  boolean, d: any) => void;
+  alsoDoesNothing = doesNothing
   
   })() 
   
