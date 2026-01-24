@@ -3,50 +3,96 @@ to create various files in the same project using similar names
 */
 
 (() => {
-  // Basic Functions
-  function addNumbers( a : number, b : number ) : number {
-    return a + b;
+
+  // Objects Types
+
+  type Vehicle = {
+    bodywork: string,
+    model: string,
+    bulletproof: boolean,
+    passengers: number,
+    shoot?: ()=> void, // Console a "string" but returns nothing
   }
 
-  const count = ( heroes : string[] ) : number => {
-    return heroes.length;
-  }
+  // Objects
+  const batmobile : Vehicle = {
+    bodywork: "Black",
+    model: "6x6",
+    bulletproof: true,
+    passengers: 4
+  };
 
-  //! Missed to type the "superHeroes" array
-  // const superHeroes = ["Flash", "Arrow", "Superman", "Linterna Verde"];
-  const superHeroes : string[] = ["Flash", "Arrow", "Superman", "Linterna Verde"];
-  count(superHeroes);
-
-  // Default Params
-  //! Missed the return, as the function only does a console, the type is only void
-  // const callBatman = ( call : boolean = false) : (string | void) => {
-  const callBatman = ( call : boolean = false) : void => {
-    if( call ){
-      console.log("Batiseñal activada");
+  const bumblebee : Vehicle = {
+    bodywork: "Yellow and Black",
+    model: "4x2",
+    bulletproof: true,
+    passengers: 4,
+    shoot() { // Shoot method is optional
+      console.log("Shooting");
     }
+  };
+
+  // Villans Types
+  type Villan = {
+    name: string,
+    age: number | undefined,
+    mutation: boolean,
+  };
+
+  type Villans = Villan[]; 
+  /*
+  type Villans = Villan[]; -> Instead of this we should use
+
+  const villans : Villan[] {
+    ...
+  }
+  */
+
+  // Villans should be and array of custom objects
+  // const villans : Villan[]
+  const villans : Villans = [{
+    name: "Lex Luthor",
+    age: 54,
+    mutation: false
+  }, {
+    name: "Erik Magnus Lehnsherr",
+    age: 49,
+    mutation: true
+  }, {
+    name: "James Logan",
+    age: undefined,
+    mutation: true
+  }];
+
+  // Multi Types
+  // Create two types, one for Charles and other for Apocalypse
+
+  type Charles = {
+    power: string,
+    height: number,
+  };
+
+  type Apocalypse = {
+    leader: boolean,
+    members: string[]
   }
 
-  callBatman();
 
-  // Rest?
-  //! Missed to use the "..." rest to receive the people arguments
-  //! const joinHeroes = ( people : string[] ) : string => {
-  const joinHeroes = ( ...people : string[] ) : string => {
-    return people.join(", ");
+  const charles : Charles = {
+    power: "psiquico",
+    height: 1.78
+  };
+
+  const apocalipsis : Apocalypse = {
+    leader: true,
+    members: ["Magneto", "Tormenta", "Psylocke", "Angel"]
   }
 
-  // Function Type
-  const doesNothing = ( 
-    isNumber : number, 
-    isText : string, 
-    isBoolean : boolean, 
-    isArray : any[] ) : void => {}
+  // Mystique, should be any of the previous mutants ( Charles or Apocalypse)
+  let mystique : Charles | Apocalypse;
 
-  // Create the type of function that accepts the function "doesNothing"
-  //! Missed to type appropiately the arguments and the return
-  //! let alsoDoesNothing : Function;
-  let alsoDoesNothing : (a: number, b: string, c:  boolean, d: any) => void;
-  alsoDoesNothing = doesNothing
-  
-  })() 
-  
+  mystique = charles;
+  mystique = apocalipsis;
+
+
+})()
