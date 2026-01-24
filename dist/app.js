@@ -3,43 +3,50 @@
 to create various files in the same project using similar names
 */
 (function () {
-    // Basic Functions
-    function addNumbers(a, b) {
-        return a + b;
-    }
-    var count = function (heroes) {
-        return heroes.length;
+    // Objects Types
+    // Objects
+    var batmobile = {
+        bodywork: "Black",
+        model: "6x6",
+        bulletproof: true,
+        passengers: 4
     };
-    //! Missed to type the "superHeroes" array
-    // const superHeroes = ["Flash", "Arrow", "Superman", "Linterna Verde"];
-    var superHeroes = ["Flash", "Arrow", "Superman", "Linterna Verde"];
-    count(superHeroes);
-    // Default Params
-    //! Missed the return, as the function only does a console, the type is only void
-    // const callBatman = ( call : boolean = false) : (string | void) => {
-    var callBatman = function (call) {
-        if (call === void 0) { call = false; }
-        if (call) {
-            console.log("Batiseñal activada");
+    var bumblebee = {
+        bodywork: "Yellow and Black",
+        model: "4x2",
+        bulletproof: true,
+        passengers: 4,
+        shoot: function () {
+            console.log("Shooting");
         }
     };
-    callBatman();
-    // Rest?
-    //! Missed to use the "..." rest to receive the people arguments
-    //! const joinHeroes = ( people : string[] ) : string => {
-    var joinHeroes = function () {
-        var people = [];
-        for (var _i = 0; _i < arguments.length; _i++) {
-            people[_i] = arguments[_i];
-        }
-        return people.join(", ");
+    // Villans should be and array of custom objects
+    var villanos = [{
+            name: "Lex Luthor",
+            age: 54,
+            mutation: false
+        }, {
+            name: "Erik Magnus Lehnsherr",
+            age: 49,
+            mutation: true
+        }, {
+            name: "James Logan",
+            age: undefined,
+            mutation: true
+        }];
+    // Multi Types
+    // Create two types, one for Charles and other for Apocalypse
+    var charles = {
+        power: "psiquico",
+        height: 1.78
     };
-    // Function Type
-    var doesNothing = function (isNumber, isText, isBoolean, isArray) { };
-    // Create the type of function that accepts the function "doesNothing"
-    //! Missed to type appropiately the arguments and the return
-    //! let alsoDoesNothing : Function;
-    var alsoDoesNothing;
-    alsoDoesNothing = doesNothing;
+    var apocalipsis = {
+        leader: true,
+        members: ["Magneto", "Tormenta", "Psylocke", "Angel"]
+    };
+    // Mystique, should be any of the previous mutants ( Charles or Apocalypse)
+    var mystique;
+    mystique = charles;
+    mystique = apocalipsis;
 })();
 //# sourceMappingURL=app.js.map
