@@ -26,8 +26,8 @@
     const name3 = fullName("Tony", "Stark", true);
 
     // This is an error because the order of arguments
-    const name4 = fullName("Tony", true)
+    //const name4 = fullName("Tony", true)
 
-    console.log( {name1, name2, name3, name4} )
+    //console.log( {name1, name2, name3, name4} )
 
 })()

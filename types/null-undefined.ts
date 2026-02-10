@@ -9,7 +9,7 @@ to create various files in the same project using similar names
 
     console.log(nothing);
 
-    let notNothing : boolean = undefined; 
+    //let notNothing : boolean = undefined; 
     /**
     * Can't be assigned to a boolean. Unless we change 
     * the "strictNullChecks" flag from the TS configuration
