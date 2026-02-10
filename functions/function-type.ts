@@ -37,10 +37,10 @@
     let myTypedFunction1: (y: number, z: number) => number;
     let myTypedFunction2: (x: string) => string;
     let myTypedFunction3: () => string;
-
+/*
     myTypedFunction1 = addNumber; // This works, other fails
-    myTypedFunction1 = greet;
-    myTypedFunction1 = saveTheWorld;
+    //myTypedFunction1 = greet;
+    //myTypedFunction1 = saveTheWorld;
 
     myTypedFunction2 = addNumber;
     myTypedFunction2 = greet; // This works
@@ -48,6 +48,6 @@
 
     myTypedFunction3 = addNumber;
     myTypedFunction3 = greet;
-    myTypedFunction3 = saveTheWorld; // This works, other fails
+    myTypedFunction3 = saveTheWorld; // This works, other fails*/
 
 })()
