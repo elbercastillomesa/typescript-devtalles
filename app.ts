@@ -4,95 +4,103 @@ to create various files in the same project using similar names
 
 (() => {
 
-  // Objects Types
+  // Create Interfaces
 
-  type Vehicle = {
-    bodywork: string,
-    model: string,
-    bulletproof: boolean,
-    passengers: number,
-    shoot?: ()=> void, // Console a "string" but returns nothing
+  interface Mobile {
+    start: boolean;
+    maxSpeed: number;
+    accelerate(): void;
   }
 
-  // Objects
-  const batmobile : Vehicle = {
-    bodywork: "Black",
-    model: "6x6",
-    bulletproof: true,
-    passengers: 4
-  };
+  // Create an interface to validate the car (the value sent by parameter)
+  const conducirBatimovil = (auto: Mobile): void => {
+    auto.start = true;
+    auto.maxSpeed = 100;
+    auto.accelerate();
+  }
 
-  const bumblebee : Vehicle = {
-    bodywork: "Yellow and Black",
-    model: "4x2",
-    bulletproof: true,
-    passengers: 4,
-    shoot() { // Shoot method is optional
-      console.log("Shooting");
+  const batimovil: Mobile = {
+    start: false,
+    maxSpeed: 0,
+    accelerate() {
+      console.log("...... gogogo!!!");
     }
-  };
-
-  // Villans Types
-  type Villan = {
-    name: string,
-    age: number | undefined,
-    mutation: boolean,
-  };
-
-  type Villans = Villan[]; 
-  /*
-  type Villans = Villan[]; -> Instead of this we should use
-
-  const villans : Villan[] {
-    ...
   }
+
+  // Create an interface that allows to use the following object with
+  // optional parameters
+
+  interface Joker {
+    reir?: boolean;
+    comer?: boolean;
+    llorar?: boolean;
+  }
+
+  const guason: Joker = {
+    reir: true,
+    comer: true,
+    llorar: false
+  }
+
+  const reir = (guason: Joker): void => {
+    if (guason.reir) {
+      console.log("JAJAJAJA");
+    }
+  }
+
+
+  // Create an interface for the following function
+
+  interface City {
+    (citizens: string[]): number
+  }
+
+  const ciudadGotica: City = (ciudadanos: string[]): number => {
+    return ciudadanos.length;
+  }
+
+  // Create an interface that forces the use of the following class
+  // with the appropiate methods and properties
+
+  /*
+    properties:
+      - nombre
+      - edad
+      - sexo
+      - estadoCivil
+      - imprimirBio(): void // print a brief description in console
   */
 
-  // Villans should be and array of custom objects
-  // const villans : Villan[]
-  const villans : Villans = [{
-    name: "Lex Luthor",
-    age: 54,
-    mutation: false
-  }, {
-    name: "Erik Magnus Lehnsherr",
-    age: 49,
-    mutation: true
-  }, {
-    name: "James Logan",
-    age: undefined,
-    mutation: true
-  }];
+  interface Person {
+    nombre: string;
+    edad: number;
+    sexo: string;
+    estadoCivil: string;
 
-  // Multi Types
-  // Create two types, one for Charles and other for Apocalypse
-
-  type Charles = {
-    power: string,
-    height: number,
-  };
-
-  type Apocalypse = {
-    leader: boolean,
-    members: string[]
+    imprimirBio(): void;
   }
 
 
-  const charles : Charles = {
-    power: "psiquico",
-    height: 1.78
-  };
+  class Persona implements Person {
+    public nombre: string;
+    public edad: number;
+    public sexo: string;
+    public estadoCivil: string;
 
-  const apocalipsis : Apocalypse = {
-    leader: true,
-    members: ["Magneto", "Tormenta", "Psylocke", "Angel"]
+    constructor(
+      nombre: string,
+      edad: number,
+      sexo: string,
+      estadoCivil: string
+    ) {
+      this.nombre = nombre;
+      this.edad = edad;
+      this.sexo = sexo;
+      this.estadoCivil = estadoCivil;
+    }
+
+    imprimirBio(): void {
+      console.log(`Here's a brief description for ${this.nombre}`)
+    }
   }
-
-  // Mystique, should be any of the previous mutants ( Charles or Apocalypse)
-  let mystique : Charles | Apocalypse;
-
-  mystique = charles;
-  mystique = apocalipsis;
-
-
 })()
